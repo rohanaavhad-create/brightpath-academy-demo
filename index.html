@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="BrightPath Academy - Modern coaching for a brighter future.">
+
+  <title>BrightPath Academy | Excellence in Education</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root {
+      --navy: #07152e;
+      --navy-light: #10254a;
+      --navy-card: #142d54;
+      --blue: #3d8bff;
+      --cyan: #4bdcff;
+      --gold: #e8c477;
+      --white: #ffffff;
+      --off-white: #f5f8fd;
+      --dark-text: #172743;
+      --muted: #b9c9e3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: 'DM Sans', Arial, sans-serif;
+      color: var(--white);
+      background: var(--navy);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1150px, 90%);
+      margin: auto;
+    }
+
+    .gold-text {
+      color: var(--gold);
+    }
+
+    .blue-text {
+      color: var(--blue);
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 21, 46, 0.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 25px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #e8c477, #f6dfaa);
+      color: #17243d;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(232, 196, 119, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(61, 139, 255, 0.19), transparent 35%),
+        radial-gradient(circle at 15% 85%, rgba(232, 196, 119, 0.09), transparent 30%),
+        linear-gradient(135deg, #07152e, #11274d);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 9px 17px;
+      border-radius: 50px;
+      border: 1px solid rgba(232, 196, 119, 0.35);
+      background: rgba(232, 196, 119, 0.06);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 65px);
+      margin-bottom: 24px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 570px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(145deg, #17345e, #0e2141);
+      padding: 38px;
+      border: 1px solid rgba(232, 196, 119, 0.25);
+      border-radius: 24px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(232, 196, 119, 0.12);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+
+    .panel-icon {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    .hero-panel h3 {
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .hero-panel ul {
+      list-style: none;
+    }
+
+    .hero-panel li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e4edff;
+    }
+
+    .hero-panel li:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* COMMON SECTIONS */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.75;
+    }
+
+    /* COURSES */
+
+    .courses {
+      background: var(--off-white);
+      color: var(--dark-text);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .course-card {
+      background: white;
+      padding: 35px 30px;
+      border-radius: 18px;
+      border: 1px solid #e6ecf5;
+      box-shadow: 0 10px 35px rgba(10, 35, 75, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(10, 35, 75, 0.12);
+    }
+
+    .course-icon {
+      display: inline-flex;
+      width: 65px;
+      height: 65px;
+      justify-content: center;
+      align-items: center;
+      background: #eaf2ff;
+      border-radius: 16px;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .course-card h3 {
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .course-card p {
+      color: #64738d;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    .course-card a {
+      color: #1766d1;
+      font-weight: 700;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: var(--navy);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature-card {
+      padding: 35px 30px;
+      background: var(--navy-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .feature-icon {
+      font-size: 37px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* HIGHLIGHT BANNER */
+
+    .highlight-banner {
+      background: linear-gradient(135deg, #e8c477, #f7e5bb);
+      color: #17243d;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .highlight-banner h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .highlight-banner p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    .dark-btn {
+      background: #0b1d3a;
+      color: white;
+    }
+
+    /* ADMISSIONS */
+
+    .admissions {
+      background: #0c1d3b;
+    }
+
+    .admission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .admission-info h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      margin-bottom: 25px;
+    }
+
+    .admission-info p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-detail {
+      margin: 16px 0;
+      color: #e4edff;
+    }
+
+    .contact-form {
+      background: #152e55;
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: var(--gold);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      background: #091a35;
+      border: 1px solid #365178;
+      border-radius: 9px;
+      color: white;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .contact-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #050f21;
+      padding: 45px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer .footer-logo {
+      color: white;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    footer .footer-logo span {
+      color: var(--gold);
+    }
+
+    /* FLOATING BUTTON */
+
+    .floating-contact {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      padding: 14px 22px;
+      background: #25d366;
+      color: #06351b;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 900;
+      transition: transform 0.3s;
+    }
+
+    .floating-contact:hover {
+      transform: translateY(-4px);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .admission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-grid,
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-panel {
+        padding: 25px;
+      }
+
+      .course-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .contact-form {
+        padding: 24px;
+      }
+
+      .floating-contact {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 17px;
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav class="container navbar">
+
+      <a href="#home" class="logo">
+        BrightPath<span>Academy</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">Why Us</a>
+        <a href="#admissions">Admissions</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="eyebrow">
+            ✦ A BRIGHTER FUTURE STARTS HERE
+          </span>
+
+          <h1>
+            Where Learning<br>
+            Meets <span class="gold-text">Excellence.</span>
+          </h1>
+
+          <p class="hero-description">
+            Discover a smarter way to learn with focused guidance,
+            clear concepts, and a supportive environment designed
+            to help students reach their potential.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#admissions" class="btn">
+              Enquire About Admission →
+            </a>
+
+            <a href="#courses" class="btn btn-outline">
+              Explore Courses
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-icon">🎓</div>
+
+          <h3>Excellence Starts Here</h3>
+
+          <ul>
+            <li>✦ Concept-Based Learning</li>
+            <li>✦ Personal Student Guidance</li>
+            <li>✦ Structured Study Programs</li>
+            <li>✦ Regular Practice Sessions</li>
+            <li>✦ Supportive Learning Environment</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COURSES -->
+
+    <section class="courses" id="courses">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>
+            Explore Our <span class="blue-text">Courses</span>
+          </h2>
+
+          <p>
+            Carefully designed learning programs for every
+            stage of academic development.
+          </p>
+        </div>
+
+        <div class="course-grid">
+
+          <article class="course-card">
+            <div class="course-icon">📘</div>
+
+            <h3>Classes 5–8</h3>
+
+            <p>
+              Build strong foundations in mathematics, science,
+              and essential academic subjects through
+              clear and engaging lessons.
+            </p>
+
+            <a href="#admissions">Enquire Now →</a>
+          </article>
+
+          <article class="course-card">
+            <div class="course-icon">📗</div>
+
+            <h3>Classes 9–10</h3>
+
+            <p>
+              Develop confidence with structured learning,
+              concept revision, practice questions,
+              and focused exam preparation.
+            </p>
+
+            <a href="#admissions">Enquire Now →</a>
+          </article>
+
+          <article class="course-card">
+            <div class="course-icon">🎯</div>
+
+            <h3>Exam Preparation</h3>
+
+            <p>
+              Strengthen exam readiness through regular
+              practice, revision strategies, and
+              guided preparation sessions.
+            </p>
+
+            <a href="#admissions">Enquire Now →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="about" id="about">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>
+            Why Choose <span class="gold-text">BrightPath?</span>
+          </h2>
+
+          <p>
+            We believe every student deserves an opportunity
+            to learn, grow, and succeed.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+            <div class="feature-icon">👨‍🏫</div>
+
+            <h3>Personal Guidance</h3>
+
+            <p>
+              Individual attention to help students
+              understand concepts and build confidence.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+
+            <h3>Regular Practice</h3>
+
+            <p>
+              Structured revision and practice activities
+              designed to reinforce learning.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌟</div>
+
+            <h3>Positive Environment</h3>
+
+            <p>
+              A welcoming and encouraging atmosphere
+              that supports academic development.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+
+    <section class="highlight-banner">
+      <div class="container">
+
+        <h2>Take the Next Step Toward Success</h2>
+
+        <p>
+          Explore our learning programs and find
+          the right academic support for your goals.
+        </p>
+
+        <a href="#admissions" class="btn dark-btn">
+          Enquire About Admission →
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+
+    <section class="admissions" id="admissions">
+      <div class="container admission-grid">
+
+        <div class="admission-info">
+
+          <h2>
+            Your Future Begins
+            <span class="gold-text">Today.</span>
+          </h2>
+
+          <p>
+            Have questions about our courses, batches,
+            schedules, or admissions?
+          </p>
+
+          <p>
+            Fill out the demo enquiry form to see
+            how the admission process could work.
+          </p>
+
+          <div class="contact-detail">
+            📍 Location: Your City, India
+          </div>
+
+          <div class="contact-detail">
+            📞 Phone: To be added
+          </div>
+
+          <div class="contact-detail">
+            ✉️ Email: To be added
+          </div>
+
+          <p class="form-note">
+            This is a demonstration website.
+            Actual institute details will be added
+            after approval from the business owner.
+          </p>
+
+        </div>
+
+        <form class="contact-form" id="enquiryForm">
+
+          <h3>📩 Admission Enquiry</h3>
+
+          <label for="studentName">
+            Student Name
+          </label>
+
+          <input
+            type="text"
+            id="studentName"
+            placeholder="Enter a demo student name"
+            required
+          >
+
+          <label for="studentClass">
+            Select Class
+          </label>
+
+          <select id="studentClass" required>
+            <option value="">Choose a course</option>
+            <option>Class 5–8</option>
+            <option>Class 9–10</option>
+            <option>Exam Preparation</option>
+          </select>
+
+          <label for="message">
+            Your Message
+          </label>
+
+          <textarea
+            id="message"
+            placeholder="Enter a demo enquiry message"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn">
+            Submit Enquiry →
+          </button>
+
+          <p class="form-note">
+            Demo only. This form does not send,
+            collect, or store enquiries.
+            Please use fictional details when testing.
+          </p>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-logo">
+        BrightPath<span>Academy</span>
+      </div>
+
+      <p>
+        Learn with Confidence. Grow with Purpose.
+      </p>
+
+      <p style="margin-top: 12px;">
+        © <span id="year"></span> BrightPath Academy.
+        Demonstration Website.
+      </p>
+
+      <p style="margin-top: 8px;">
+        Demo created by AURONEXIS BUSINESS.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING CONTACT BUTTON -->
+
+  <a
+    href="#admissions"
+    class="floating-contact"
+    aria-label="Go to admission enquiry section"
+  >
+    💬 Enquire Now
+  </a>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // Automatically update copyright year.
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Demo admission form.
+    // No information is sent or stored.
+
+    const enquiryForm = document.getElementById("enquiryForm");
+
+    enquiryForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert(
+        "Demo enquiry received on this page! " +
+        "This form does not send or store information yet."
+      );
+
+      enquiryForm.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
